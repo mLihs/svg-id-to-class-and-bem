@@ -1,4 +1,4 @@
-// This SVGO plugin converts the `id` attribute on elements into a `class` attributes.
+// This SVGO plugin converts the `id` atribute on elements into a `class` attributes.
 // The value of the class atribute can be BEM based or the initial value.
 // In any case the it will be clean up the names and remove special charkter
 
@@ -9,7 +9,13 @@ exports.type = 'perItem';
 
 exports.active = true;
 
-exports.description = 'convert id attribute to class, using the same value';
+exports.description = 'convert id attribute to class by using the same value and or BEM';
+
+exports.params = {
+  idToClass: true,
+  bemChild: '__'  
+}
+
 
 var group = new Array();
 var defs = new Array();
@@ -25,7 +31,7 @@ function getParrent(elm){
   return parent;
 }
 
-exports.fn = function(item) {
+exports.fn = function(item, params) {
   
   // {name: 'group b', parrent:[group]}
   // {name: 'layer B ', parrent:[group]}
@@ -76,23 +82,27 @@ exports.fn = function(item) {
           
         }
         
-        var myId = cleanName(id);
+        var myNewName = cleanName(id);
         if (parent.length > 0) {
           var prefix = '';
           parent.forEach(function(e, index) {
-            prefix += cleanName(e) + '__';
+            prefix += cleanName(e) + params.bemChild;
           })
-          myId = prefix + id;
+          myNewName = prefix + id;
         }
 
-        item.addAttr({
-          name: 'class',
-          value: myId,
-          prefix: '',
-          local: 'class'
-        })
+        if (params.idToClass){
+          item.addAttr({
+            name: 'class',
+            value: myNewName,
+            prefix: '',
+            local: 'class'
+          })
 
-        item.removeAttr('id');
+          item.removeAttr('id');
+        } else {
+          id = myNewName
+        }
      }
   }
 }
