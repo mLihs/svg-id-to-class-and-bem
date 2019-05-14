@@ -1,1 +1,2 @@
-#SVGO Export Plugin - to transform Sketch Layer Structure to BEM
+# SVGO Export Plugin 
+## Transform Sketch Layer Structure to BEM
