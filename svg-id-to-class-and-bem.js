@@ -88,7 +88,7 @@ exports.fn = function(item, params) {
           parent.forEach(function(e, index) {
             prefix += cleanName(e) + params.bemChild;
           })
-          myNewName = prefix + id;
+          myNewName = prefix + cleanName(id);
         }
 
         if (params.idToClass){
