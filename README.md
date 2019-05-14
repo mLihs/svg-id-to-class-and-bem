@@ -17,10 +17,11 @@ requires Sketch >= 52
 
 **Step 1:**
 Download and install the Plugin.
-Open the Sketch Plugin folder: 'Plugins' > 'Manage Plugins' > 'Reval in Finder'
+Open the Sketch Plugin folder: 'Plugins' > 'Manage Plugins' > 'Reval in Finder'. 
+Inside the pluginfolder create a new folder called SVGO-plugins.
 
 **Step 2:**
-Open Sketch go to 'Plugins' > 'SVGO Compressor' > About and 'Edit SVGO Settings'.
+Open Sketch go to 'Plugins' > 'SVGO Compressor' > 'About' and 'Edit SVGO Settings'.
 Search and deactivate the following option in the svgo.json file.
 
 ```
