@@ -50,7 +50,6 @@ exports.fn = function(item, params) {
   }
 
   if (item.isElem('defs')) {
-   
     var itemChilds = item.content;
     itemChilds.forEach(function(e) {
       var id = e.attrs.id.value;
@@ -58,31 +57,30 @@ exports.fn = function(item, params) {
         defs.push(id);
       }
     })
-    console.log(defs)
   }
   
   
   if (item.isElem() && item.hasAttr('id') && !item.isElem('mask')) {
+
       var id = item.attrs.id.value;
+
       if (!defs.includes(id)) {
         var parent = getParrent(id);
-
         if (item.isElem('g') && item.hasAttr('id') ){
-          id = item.attrs.id.value
-          var parent = getParrent(id)
+          id = item.attrs.id.value;
+          var parent = getParrent(id);
           var myParent = new Array(id);
-          myParent = parent.concat(myParent)
-
+          myParent = parent.concat(myParent);
           var itemChilds = item.content;
           itemChilds.forEach(function(e) {
             if (e.elem != 'mask' && e.hasAttr('id')) {
-              group.push({name: e.attrs.id.value, parent: myParent})
+              group.push({name: e.attrs.id.value, parent: myParent});
             }
           });
-          
         }
         
         var myNewName = cleanName(id);
+
         if (parent.length > 0) {
           var prefix = '';
           parent.forEach(function(e, index) {
@@ -101,7 +99,7 @@ exports.fn = function(item, params) {
 
           item.removeAttr('id');
         } else {
-          id = myNewName
+          id = myNewName;
         }
      }
   }
