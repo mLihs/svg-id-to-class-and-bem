@@ -1,3 +1,5 @@
+![Header Image](https://repository-images.githubusercontent.com/186617526/74d75b80-7676-11e9-8dfa-11c31e1e7615)
+
 # Transform Sketch Layer Structure to BEM
 **An SVGO Export Plugin**
 
