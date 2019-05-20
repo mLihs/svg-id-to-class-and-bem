@@ -7,7 +7,7 @@ This plugin translate the layer information to a **Block, Element, Modifier meth
 Based on the SVG sructure and the information of each layer id it creats the BEM model.
 Furthermore the plugin provide the feature to transform **IDs to Classes** and allow to keep defined IDs or Classes.
 
-### Example
+**Example**
 
 ![Sketch Layer Example](https://github.com/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_a.png?raw=true)
 ![SVG Export Example](https://github.com/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_b.png?raw=true)
