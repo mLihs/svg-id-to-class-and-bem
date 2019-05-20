@@ -14,8 +14,8 @@ exports.description = 'convert id attribute to class by using the same value and
 exports.params = {
   idToClass: true,
   bem: true,
-  bemChild: '__',
-  seperator: '-'
+  bemSeperator: '__',
+  charSeperator: '-'
 }
 
 
@@ -48,7 +48,7 @@ exports.fn = function(item, params) {
 
   function cleanName (str){
     str = str.match(/[^\/]+$/g)[0];
-    str = str.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, params.seperator).toLowerCase()
+    str = str.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, params.charSeperator).toLowerCase()
     return str
   }
 
@@ -90,7 +90,7 @@ exports.fn = function(item, params) {
         if (parent.length > 0 && params.bem) {
           var prefix = '';
           parent.forEach(function(e, index) {
-            prefix += cleanName(e) + params.bemChild;
+            prefix += cleanName(e) + params.bemSeperator;
           })
           myNewName = prefix;
         }
