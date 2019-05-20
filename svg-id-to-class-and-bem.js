@@ -13,12 +13,15 @@ exports.description = 'convert id attribute to class by using the same value and
 
 exports.params = {
   idToClass: true,
-  bemChild: '__'  
+  bem: true,
+  bemChild: '__',
+  seperator: '-'
 }
 
 
 var group = new Array();
 var defs = new Array();
+var keepID = new Array();
 
 
 function getParrent(elm){
@@ -45,7 +48,7 @@ exports.fn = function(item, params) {
 
   function cleanName (str){
     str = str.match(/[^\/]+$/g)[0];
-    str = str.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, '_').toLowerCase()
+    str = str.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, params.seperator).toLowerCase()
     return str
   }
 
@@ -62,11 +65,15 @@ exports.fn = function(item, params) {
   
   if (item.isElem() && item.hasAttr('id') && !item.isElem('mask')) {
 
+      var myNewName = '';
+      var classOrIdPrefix = '';
+      var idToClass = params.idToClass
+
       var id = item.attrs.id.value;
 
       if (!defs.includes(id)) {
         var parent = getParrent(id);
-        if (item.isElem('g') && item.hasAttr('id') ){
+        if (item.isElem('g') && item.hasAttr('id') && params.bem ){
           id = item.attrs.id.value;
           var parent = getParrent(id);
           var myParent = new Array(id);
@@ -79,27 +86,41 @@ exports.fn = function(item, params) {
           });
         }
         
-        var myNewName = cleanName(id);
-
-        if (parent.length > 0) {
+        
+        if (parent.length > 0 && params.bem) {
           var prefix = '';
           parent.forEach(function(e, index) {
             prefix += cleanName(e) + params.bemChild;
           })
-          myNewName = prefix + cleanName(id);
+          myNewName = prefix;
         }
 
-        if (params.idToClass){
+
+        if (id.match(/^[\.#]/g)){
+          classOrIdPrefix = id.match(/^[\.#]/g)[0];
+          id = id.replace(/^[\.#]/g, '');
+          myNewName = cleanName(id);
+          if (classOrIdPrefix == '.') {
+            idToClass = true;
+          } else if (classOrIdPrefix == '#'){
+            keepID.push(myNewName);
+            idToClass = false;
+          } 
+        } else {
+          myNewName += cleanName(id);
+        }
+
+
+        if (idToClass && !keepID.includes(id)){
           item.addAttr({
             name: 'class',
             value: myNewName,
             prefix: '',
             local: 'class'
           })
-
           item.removeAttr('id');
-        } else {
-          id = myNewName;
+        } else if (!idToClass){
+          item.attrs.id.value = myNewName;
         }
      }
   }
