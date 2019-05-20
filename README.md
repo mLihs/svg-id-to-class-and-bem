@@ -13,7 +13,7 @@ Furthermore the plugin provide the feature to transform **IDs to Classes** and a
 ![SVG Export Example](https://github.com/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_b.png?raw=true)
 
 
-## Parms:
+### Parms:
 
 * idToClass: Boolean, transform all IDs to classes, excluding specific IDs set within the Sketch layer.
 * bem: Boolean, turn on or off BEM creation
