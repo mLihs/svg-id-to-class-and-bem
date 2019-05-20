@@ -9,8 +9,8 @@ Furthermore the plugin provide the feature to transform **IDs to Classes** and a
 
 ### Example
 
-![Sketch Layer Example](/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_a.png)
-![SVG Export Example](/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_b.png)
+![Sketch Layer Example](https://github.com/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_a.png?raw=true)
+![SVG Export Example](https://github.com/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_b.png?raw=true)
 
 
 ## Parms:
