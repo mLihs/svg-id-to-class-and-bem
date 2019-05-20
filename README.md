@@ -15,10 +15,10 @@ Furthermore the plugin provide the feature to transform **IDs to Classes** and a
 
 ## Parms:
 
-idToClass: Boolean, transform all IDs to classes, excluding specific IDs set within the Sketch layer.
-bem: Boolean, turn on or off BEM creation
-bemSeperator: String, define a string for BEM seperation
-charSeperator: String, define a string for special char ( $%&… ) replacement
+* idToClass: Boolean, transform all IDs to classes, excluding specific IDs set within the Sketch layer.
+* bem: Boolean, turn on or off BEM creation
+* bemSeperator: String, define a string for BEM seperation
+* charSeperator: String, define a string for special char ( $%&… ) replacement
 
 
 
