@@ -5,12 +5,27 @@
 
 This plugin translate the layer information to a **Block, Element, Modifier methodology**.
 Based on the SVG sructure and the information of each layer id it creats the BEM model.
-Furthermore the plugin provide the feature to transform **IDs to Classes**.
+Furthermore the plugin provide the feature to transform **IDs to Classes** and allow to keep defined IDs or Classes.
+
+**Example**
+
+![Sketch Layer Example](https://github.com/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_a.png?raw=true)
+![SVG Export Example](https://github.com/mLihs/svgo-id-to-class-and-bem/blob/master/src/img/example_b.png?raw=true)
+
+
+### Parms:
+
+* idToClass: Boolean, transform all IDs to classes, excluding specific IDs set within the Sketch layer.
+* bem: Boolean, turn on or off BEM creation
+* bemSeperator: String, define a string for BEM seperation
+* charSeperator: String, define a string for special char ( $%&… ) replacement
+
+
 
 
 ## Usage with BohemianCoding's svgo-compressor
 
-U can use the plugin with [BohemianCoding's svgo-compressor](https://github.com/BohemianCoding/svgo-compressor) to export   compressed SVG that follow BEM from [Sketch](https://www.sketch.com)
+You can use the plugin with [BohemianCoding's svgo-compressor](https://github.com/BohemianCoding/svgo-compressor) to export   compressed SVG that follow BEM from [Sketch](https://www.sketch.com)
 
 requires Sketch >= 52
 
