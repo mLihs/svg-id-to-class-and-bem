@@ -48,7 +48,7 @@ exports.fn = function(item, params) {
 
   function cleanName (str){
     str = str.match(/[^\/]+$/g)[0];
-    str = str.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, params.charSeperator).toLowerCase()
+    str = str.replace(/[` ~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/g, params.charSeperator).toLowerCase()
     return str
   }
 
